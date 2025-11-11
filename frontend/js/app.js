@@ -73,7 +73,7 @@ class JobSearchApp {
     }
 
     generateMockResults(query, location) {
-        // Mock Indian government job data
+        // Mock Indian government job data with comprehensive details
         const govtDepartments = [
             'Union Public Service Commission (UPSC)',
             'Staff Selection Commission (SSC)',
@@ -104,12 +104,17 @@ class JobSearchApp {
             'Group A/B/C/D'
         ];
 
+        // Enhanced job data based on PDF research
         const mockJobs = [
             {
                 title: `${query} - ${jobCategories[0]}`,
                 company: govtDepartments[0],
                 location: locations[0],
                 description: `Applications invited for ${query} positions in ${govtDepartments[0]}. Central Government opportunity with excellent career growth and benefits. Educational qualifications and age criteria apply.`,
+                eligibility: 'Graduate degree, Age: 21-32 years',
+                applicationDeadline: 'Apply by: 30th December 2025',
+                examDate: 'Preliminary Exam: February 2026',
+                vacancies: 'Multiple vacancies across categories',
                 link: '#job-1'
             },
             {
@@ -117,6 +122,10 @@ class JobSearchApp {
                 company: govtDepartments[1],
                 location: location || locations[1],
                 description: `Staff Selection Commission announces recruitment for ${query.toLowerCase()} posts across various departments. Online applications open. Check official notification for eligibility criteria.`,
+                eligibility: '10+2/Graduate, Age: 18-30 years',
+                applicationDeadline: 'Last date: 15th January 2026',
+                examDate: 'Written Exam: March 2026',
+                vacancies: '5000+ posts',
                 link: '#job-2'
             },
             {
@@ -124,6 +133,10 @@ class JobSearchApp {
                 company: govtDepartments[2],
                 location: location || locations[7],
                 description: `Railway Recruitment Board invites applications for Junior ${query.toLowerCase()} positions. Multiple vacancies across zones. Competitive salary and railway benefits included.`,
+                eligibility: '10th/12th Pass, Age: 18-33 years',
+                applicationDeadline: 'Application closes: 20th January 2026',
+                examDate: 'CBT: February-March 2026',
+                vacancies: '10,000+ vacancies',
                 link: '#job-3'
             },
             {
@@ -131,6 +144,10 @@ class JobSearchApp {
                 company: govtDepartments[3],
                 location: location || locations[3],
                 description: `IBPS announces recruitment for ${query.toLowerCase()} in public sector banks. Nationalized bank opportunity with job security and attractive perks. Exam dates to be notified.`,
+                eligibility: 'Graduate, Age: 20-30 years',
+                applicationDeadline: 'Apply online: Till 25th December 2025',
+                examDate: 'Prelims: January 2026, Mains: March 2026',
+                vacancies: '3000+ positions in PSU banks',
                 link: '#job-4'
             },
             {
@@ -138,6 +155,10 @@ class JobSearchApp {
                 company: govtDepartments[4],
                 location: location || locations[2],
                 description: `State Public Service Commission recruitment for ${query.toLowerCase()} in state government departments. Reserved and unreserved vacancies. Apply online before deadline.`,
+                eligibility: 'Graduate, Age as per state rules',
+                applicationDeadline: 'Deadline: 10th January 2026',
+                examDate: 'Prelim: Feb 2026, Mains: May 2026',
+                vacancies: '500+ state govt positions',
                 link: '#job-5'
             }
         ];
@@ -193,15 +214,63 @@ class JobSearchApp {
         description.className = 'job-description';
         description.textContent = job.description;
         
+        // Add enhanced fields if available
+        if (job.eligibility) {
+            const eligibility = document.createElement('p');
+            eligibility.className = 'job-eligibility';
+            eligibility.style.color = 'rgba(0, 255, 0, 0.7)';
+            eligibility.style.fontSize = '1.1rem';
+            eligibility.style.marginTop = '5px';
+            eligibility.textContent = `✓ ELIGIBILITY: ${job.eligibility}`;
+            card.appendChild(title);
+            card.appendChild(company);
+            card.appendChild(location);
+            card.appendChild(eligibility);
+            card.appendChild(description);
+        } else {
+            card.appendChild(title);
+            card.appendChild(company);
+            card.appendChild(location);
+            card.appendChild(description);
+        }
+        
+        // Add application deadline
+        if (job.applicationDeadline) {
+            const deadline = document.createElement('p');
+            deadline.className = 'job-deadline';
+            deadline.style.color = '#ffff00';
+            deadline.style.fontSize = '1.1rem';
+            deadline.style.marginTop = '5px';
+            deadline.textContent = `⏰ ${job.applicationDeadline}`;
+            card.appendChild(deadline);
+        }
+        
+        // Add exam date
+        if (job.examDate) {
+            const examDate = document.createElement('p');
+            examDate.className = 'job-exam';
+            examDate.style.color = 'rgba(0, 255, 255, 0.8)';
+            examDate.style.fontSize = '1.1rem';
+            examDate.style.marginTop = '3px';
+            examDate.textContent = `📝 ${job.examDate}`;
+            card.appendChild(examDate);
+        }
+        
+        // Add vacancies
+        if (job.vacancies) {
+            const vacancies = document.createElement('p');
+            vacancies.className = 'job-vacancies';
+            vacancies.style.color = 'rgba(0, 255, 0, 0.6)';
+            vacancies.style.fontSize = '1.1rem';
+            vacancies.style.marginTop = '3px';
+            vacancies.textContent = `📊 VACANCIES: ${job.vacancies}`;
+            card.appendChild(vacancies);
+        }
+        
         const link = document.createElement('a');
         link.href = job.link;
         link.className = 'job-link';
         link.textContent = '[ VIEW DETAILS ]';
-        
-        card.appendChild(title);
-        card.appendChild(company);
-        card.appendChild(location);
-        card.appendChild(description);
         card.appendChild(link);
         
         return card;

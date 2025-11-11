@@ -114,17 +114,31 @@ function generateMockJobs(query, location) {
     ];
 
     const jobTypes = ['Civil Services', 'Clerical', 'Technical', 'Officer', 'Group A/B'];
+    const eligibilityCriteria = [
+        'Graduate degree, Age: 21-32 years',
+        '10+2/Graduate, Age: 18-30 years',
+        '10th/12th Pass, Age: 18-33 years',
+        'Graduate, Age: 20-30 years',
+        'Graduate, Age as per state rules'
+    ];
 
     const jobs = [];
     const numJobs = Math.floor(Math.random() * 5) + 3; // 3-7 jobs
 
     for (let i = 0; i < numJobs; i++) {
+        const applicationDate = new Date(Date.now() + Math.random() * 30 * 24 * 60 * 60 * 1000);
+        const examDate = new Date(applicationDate.getTime() + 45 * 24 * 60 * 60 * 1000);
+        
         jobs.push({
             id: `job-${Date.now()}-${i}`,
             title: `${jobTypes[i % jobTypes.length]} ${query}`,
             company: govtDepartments[i % govtDepartments.length],
             location: locations[i % locations.length],
             description: `Government of India recruitment notification for ${query.toLowerCase()} positions. Indian nationals eligible. Educational qualifications, age limits, and reservation policies apply as per government norms.`,
+            eligibility: eligibilityCriteria[i % eligibilityCriteria.length],
+            applicationDeadline: `Apply by: ${applicationDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}`,
+            examDate: `Exam: ${examDate.toLocaleDateString('en-IN', { month: 'long', year: 'numeric' })}`,
+            vacancies: `${Math.floor(Math.random() * 9000) + 1000}+ positions`,
             posted: new Date(Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000).toISOString(),
             salary: `₹${(30 + Math.floor(Math.random() * 50)) * 1000} - ₹${(60 + Math.floor(Math.random() * 100)) * 1000} per month + DA & Allowances`
         });
