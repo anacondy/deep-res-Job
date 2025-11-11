@@ -122,28 +122,20 @@ npm run dev
 ## 📸 Screenshots
 
 ### Desktop View - Indian Government Jobs Portal
-![Desktop View - Updated](https://github.com/user-attachments/assets/32141c65-9763-4d69-95a4-68175060fdf3)
-*Updated interface showing Indian Government job categories and government-specific branding*
+![Desktop Home Page](https://github.com/user-attachments/assets/3c093c90-abe6-4a4f-a231-04eda4a981db)
+*Home page with Indian Government job categories and government-specific branding*
 
-### Mobile View (16:9 Aspect Ratio)
-![Mobile 16:9 View](https://github.com/user-attachments/assets/2cb7948a-d7d2-4568-9c9c-cc1d3867e2b1)
+### Desktop View - Search Results with Enhanced Job Data
+![Desktop Search Results](https://github.com/user-attachments/assets/b45e1cb2-1dfb-48c0-b965-51ddcceeff40)
+*UPSC Civil Services search results showing eligibility criteria, deadlines, exam dates, and vacancy counts*
+
+### Mobile View (16:9 Aspect Ratio) - Search Bar at Bottom
+![Mobile 16:9 with Bottom Search](https://github.com/user-attachments/assets/2cb7948a-d7d2-4568-9c9c-cc1d3867e2b1)
 *Search bar positioned at bottom for easy mobile access on 16:9 phones (360x640)*
 
-### Mobile View (20:9 Aspect Ratio)
-![Mobile 20:9 View](https://github.com/user-attachments/assets/eea1d0b2-af90-405d-8c82-c36d5c0456a7)
+### Mobile View (20:9 Aspect Ratio) - Modern Tall Screens
+![Mobile 20:9 Optimized](https://github.com/user-attachments/assets/eea1d0b2-af90-405d-8c82-c36d5c0456a7)
 *Optimized layout for modern 20:9 aspect ratio phones (412x915)*
-
-### Main Interface
-The application features a retro terminal design with green phosphor styling and CRT effects:
-
-![Main Interface - Initial State](https://github.com/user-attachments/assets/78d2f2b5-da82-47bc-b873-93e0aa11c363)
-*Initial state of the Deep Research Job Portal with retro terminal styling*
-
-### Search Functionality in Action
-Users can search for government jobs by entering exam/department name and location:
-
-![Search Results Display](https://github.com/user-attachments/assets/d528c985-076c-48b1-a359-35a531827d41)
-*Search results showing government job listings with full details*
 
 ### Key Features Demonstrated
 
