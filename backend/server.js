@@ -6,6 +6,14 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Security Note: This is a demo application with mock data
+// In production, add:
+// - Rate limiting (e.g., express-rate-limit)
+// - Input validation and sanitization
+// - Authentication/Authorization
+// - HTTPS enforcement
+// - Security headers (helmet)
+
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -80,6 +88,8 @@ app.get('/api/jobs/:id', (req, res) => {
 });
 
 // Helper function to generate mock jobs
+// Note: Uses Math.random() for demo purposes only
+// In production, use crypto.randomBytes() for any security-sensitive randomness
 function generateMockJobs(query, location) {
     const companies = [
         'Tech Innovations Inc.',

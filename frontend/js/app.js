@@ -146,13 +146,33 @@ class JobSearchApp {
         card.className = 'job-card';
         card.style.animationDelay = `${index * 0.1}s`;
         
-        card.innerHTML = `
-            <h4 class="job-title">► ${job.title}</h4>
-            <p class="job-company">COMPANY: ${job.company}</p>
-            <p class="job-location">LOCATION: ${job.location}</p>
-            <p class="job-description">${job.description}</p>
-            <a href="${job.link}" class="job-link">[ VIEW DETAILS ]</a>
-        `;
+        // Create elements programmatically to avoid XSS
+        const title = document.createElement('h4');
+        title.className = 'job-title';
+        title.textContent = `► ${job.title}`;
+        
+        const company = document.createElement('p');
+        company.className = 'job-company';
+        company.textContent = `COMPANY: ${job.company}`;
+        
+        const location = document.createElement('p');
+        location.className = 'job-location';
+        location.textContent = `LOCATION: ${job.location}`;
+        
+        const description = document.createElement('p');
+        description.className = 'job-description';
+        description.textContent = job.description;
+        
+        const link = document.createElement('a');
+        link.href = job.link;
+        link.className = 'job-link';
+        link.textContent = '[ VIEW DETAILS ]';
+        
+        card.appendChild(title);
+        card.appendChild(company);
+        card.appendChild(location);
+        card.appendChild(description);
+        card.appendChild(link);
         
         return card;
     }
