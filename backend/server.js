@@ -70,17 +70,17 @@ app.get('/api/jobs/:id', (req, res) => {
     // Mock job detail
     const job = {
         id,
-        title: 'Senior Software Engineer',
-        company: 'Tech Innovations Inc.',
-        location: 'Remote',
-        description: 'Exciting opportunity for an experienced software engineer to join our dynamic team.',
+        title: 'Civil Services Officer',
+        company: 'Union Public Service Commission (UPSC)',
+        location: 'All India',
+        description: 'Indian Administrative Service (IAS) recruitment through Civil Services Examination. One of the most prestigious government positions in India.',
         requirements: [
-            '5+ years of experience',
-            'Strong problem-solving skills',
-            'Team player',
-            'Excellent communication'
+            'Indian citizen',
+            'Graduate degree from recognized university',
+            'Age: 21-32 years (relaxation for reserved categories)',
+            'Pass Preliminary, Mains, and Interview stages'
         ],
-        salary: '$100,000 - $150,000',
+        salary: '₹56,100 - ₹2,50,000 per month (7th Pay Commission) + DA & Allowances',
         posted: new Date().toISOString()
     };
 
@@ -91,27 +91,29 @@ app.get('/api/jobs/:id', (req, res) => {
 // Note: Uses Math.random() for demo purposes only
 // In production, use crypto.randomBytes() for any security-sensitive randomness
 function generateMockJobs(query, location) {
-    const companies = [
-        'Tech Innovations Inc.',
-        'Global Solutions Corp',
-        'StartUp Ventures',
-        'Enterprise Systems Ltd',
-        'Remote Work Hub',
-        'Digital Dynamics',
-        'Future Tech Labs',
-        'Cloud Computing Co.'
+    const govtDepartments = [
+        'Union Public Service Commission (UPSC)',
+        'Staff Selection Commission (SSC)',
+        'Railway Recruitment Board (RRB)',
+        'Institute of Banking Personnel Selection (IBPS)',
+        'State Public Service Commission',
+        'Defence Recruitment',
+        'Central Government Ministry',
+        'State Government Department'
     ];
 
     const locations = location ? [location] : [
-        'Remote',
-        'San Francisco, CA',
-        'New York, NY',
-        'Austin, TX',
-        'Seattle, WA',
-        'Boston, MA'
+        'All India',
+        'Delhi',
+        'Mumbai',
+        'Bangalore',
+        'Kolkata',
+        'Chennai',
+        'Hyderabad',
+        'Multiple Locations'
     ];
 
-    const jobTypes = ['Senior', 'Junior', 'Lead', 'Principal', 'Staff'];
+    const jobTypes = ['Civil Services', 'Clerical', 'Technical', 'Officer', 'Group A/B'];
 
     const jobs = [];
     const numJobs = Math.floor(Math.random() * 5) + 3; // 3-7 jobs
@@ -120,11 +122,11 @@ function generateMockJobs(query, location) {
         jobs.push({
             id: `job-${Date.now()}-${i}`,
             title: `${jobTypes[i % jobTypes.length]} ${query}`,
-            company: companies[i % companies.length],
+            company: govtDepartments[i % govtDepartments.length],
             location: locations[i % locations.length],
-            description: `Exciting opportunity for ${query.toLowerCase()} role. Join our team and work on innovative projects with cutting-edge technology.`,
+            description: `Government of India recruitment notification for ${query.toLowerCase()} positions. Indian nationals eligible. Educational qualifications, age limits, and reservation policies apply as per government norms.`,
             posted: new Date(Date.now() - Math.random() * 7 * 24 * 60 * 60 * 1000).toISOString(),
-            salary: `$${(60 + Math.floor(Math.random() * 100)) * 1000} - $${(100 + Math.floor(Math.random() * 100)) * 1000}`
+            salary: `₹${(30 + Math.floor(Math.random() * 50)) * 1000} - ₹${(60 + Math.floor(Math.random() * 100)) * 1000} per month + DA & Allowances`
         });
     }
 
