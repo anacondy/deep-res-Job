@@ -110,26 +110,28 @@ npm run dev
 ### Main Interface
 The application features a retro terminal design with green phosphor styling and CRT effects:
 
-![Main Interface](Screenshot%20(482).png)
+![Main Interface - Initial State](https://github.com/user-attachments/assets/78d2f2b5-da82-47bc-b873-93e0aa11c363)
+*Initial state of the Deep Research Job Portal with retro terminal styling*
 
-### Search Functionality
-Users can search for jobs by entering a query and optional location:
+### Search Functionality in Action
+Users can search for jobs by entering a query and optional location. Here's the application showing search results:
 
-- **Search Input**: Enter job title or keywords
-- **Location Filter**: Specify location or leave blank for all locations
-- **Real-time Results**: Instant job listings with company details
+![Search Results Display](https://github.com/user-attachments/assets/d528c985-076c-48b1-a359-35a531827d41)
+*Search results for "Software Engineer" showing 5 job listings with full details*
 
-### Features Showcase
+### Key Features Demonstrated
 
 #### 🎯 Search Panel
 - Clean input fields with retro styling
 - Animated cursor and blinking effects
 - Keyboard shortcuts (Ctrl/Cmd + K to focus)
+- Real-time status updates during search
 
 #### 📊 Results Display
 - Job cards with hover effects
 - Company, location, and description
 - Interactive "View Details" buttons
+- Smooth animations and transitions
 
 #### ℹ️ Info Panel
 - System status monitoring
